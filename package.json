@@ -16,6 +16,8 @@
     "express-session": "^1.17.2",
     "googleapis": "^80.1.0",
     "helmet": "^4.6.0",
+    "heroku": "^7.3.0",
+    "heroku-cli": "^7.0.9",
     "mongoose": "^5.4.20",
     "nodemailer": "^6.6.1",
     "nodemon": "^2.0.19",
