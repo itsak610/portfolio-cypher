@@ -29,52 +29,42 @@ mongoose.Promise = require("bluebird");
 var app = express();
 
 //Make new databse
-mongoose.connect(
-    "mongodb+srv://itsak:hipeople@clubcypher.bd6md.mongodb.net/clubcypher?retryWrites=true&w=majority",
-    {
-        useNewUrlParser: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true,
-    }
-);
-mongoose.set("useNewUrlParser", true);
-mongoose.set("useFindAndModify", false);
-mongoose.set("useCreateIndex", true);
+// mongoose.connect(
+//     "mongodb srv link goes here", {
+//         useNewUrlParser: true,
+//         useFindAndModify: false,
+//         useUnifiedTopology: true,
+//     }
+// );
+// mongoose.set("useNewUrlParser", true);
+// mongoose.set("useFindAndModify", false);
+// mongoose.set("useCreateIndex", true);
 // mongoose.connect("mongodb://localhost:27017/decypher")
-var db = mongoose.connection;
+// var db = mongoose.connection;
 //If Mongo Error
-db.on("error", console.error.bind(console, "connection error"));
+// db.on("error", console.error.bind(console, "connection error"));
 app.set("trust proxy", 1);
 // //Setting up sessions+cookies
-// var sessionConfig = {
-//   secret: 'MucahitBruh',
-//   resave: false,
-//   saveUninitialized: false,
-//   store: MongoStore.create({ mongoUrl: 'mongodb+srv://itsak:hipeople@clubcypher.bd6md.mongodb.net/clubcypher?retryWrites=true&w=majority' }),
 
-// }
+
+// var sessionConfig = {
+//     secret: "MucahitBruh",
+//     name: "Bruh",
+//     resave: false,
+//     saveUninitialized: false,
+//     store: MongoStore.create({
+//         mongoUrl:
+//             "mongodb srv link goes here",
+//     }),
+// };
 // app.use(session(sessionConfig));
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-var sessionConfig = {
-    secret: "MucahitBruh",
-    name: "Bruh",
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl:
-            "mongodb+srv://itsak:hipeople@clubcypher.bd6md.mongodb.net/clubcypher?retryWrites=true&w=majority",
-    }),
-};
-app.use(session(sessionConfig));
-app.use(passport.initialize());
-app.use(passport.session());
-
-var User = require("./models/user");
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// var User = require("./models/user");
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
@@ -94,7 +84,7 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views2");
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     res.setHeader(
         "Access-Control-Allow-Origin",
         "https://distracted-wescoff-b1d8d6.netlify.app"

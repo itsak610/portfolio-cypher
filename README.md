@@ -1,2 +1,2 @@
-# De(c)ypher
-The original cryptic hunt of bhopal!
+# (c)ypher
+This website was created as a registration portal for the event (c)ync conducted by the tech club of Delhi Public School Neelbad. It is current being used on the developer's portfolio. You can find it on- link
